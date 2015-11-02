@@ -1,15 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
+  name: MyString
   description: MyText
-  set: 1.5
-  reps: 1.5
-  weight: 1.5
+  image: MyString
 
 two:
-  title: MyString
+  name: MyString
   description: MyText
-  set: 1.5
-  reps: 1.5
-  weight: 1.5
+  image: MyString

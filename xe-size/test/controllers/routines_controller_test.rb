@@ -18,7 +18,7 @@ class RoutinesControllerTest < ActionController::TestCase
 
   test "should create routine" do
     assert_difference('Routine.count') do
-      post :create, routine: { : @routine., : @routine., : @routine., : @routine., _id: @routine._id, date_created: @routine.date_created, description: @routine.description, float: @routine.float, float: @routine.float, reps: @routine.reps, set: @routine.set, title: @routine.title, title: @routine.title, user_id: @routine.user_id, weight: @routine.weight }
+      post :create, routine: { description: @routine.description, reps: @routine.reps, set: @routine.set, title: @routine.title, weight: @routine.weight }
     end
 
     assert_redirected_to routine_path(assigns(:routine))
@@ -35,7 +35,7 @@ class RoutinesControllerTest < ActionController::TestCase
   end
 
   test "should update routine" do
-    patch :update, id: @routine, routine: { : @routine., : @routine., : @routine., : @routine., _id: @routine._id, date_created: @routine.date_created, description: @routine.description, float: @routine.float, float: @routine.float, reps: @routine.reps, set: @routine.set, title: @routine.title, title: @routine.title, user_id: @routine.user_id, weight: @routine.weight }
+    patch :update, id: @routine, routine: { description: @routine.description, reps: @routine.reps, set: @routine.set, title: @routine.title, weight: @routine.weight }
     assert_redirected_to routine_path(assigns(:routine))
   end
 

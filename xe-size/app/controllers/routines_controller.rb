@@ -69,6 +69,6 @@ class RoutinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def routine_params
-      params.require(:routine).permit(:title, :title, :user_id, :_id, :description, :date_created, :set, :reps, :float, :weight, :float)
+      params.require(:routine).permit(:title, :description, :set, :reps, :weight)
     end
 end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root 'exercises#index'
   resources :exercises
   resources :routines
-  root 'exercises#index'
+  devise_for :users
+  resources :users, only: [:index, :show]
 end

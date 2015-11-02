@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102145950) do
+ActiveRecord::Schema.define(version: 20151102164115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20151102145950) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "exercises_routines", id: false, force: :cascade do |t|
+    t.integer "exercise_id", null: false
+    t.integer "routine_id",  null: false
+  end
+
   create_table "routines", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -32,7 +37,10 @@ ActiveRecord::Schema.define(version: 20151102145950) do
     t.float    "weight"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
+
+  add_index "routines", ["user_id"], name: "index_routines_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -56,4 +64,5 @@ ActiveRecord::Schema.define(version: 20151102145950) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "routines", "users"
 end

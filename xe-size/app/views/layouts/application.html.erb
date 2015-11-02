@@ -13,7 +13,24 @@
   </head>
 
   <body>
-
+  <header>
+    <nav>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Routines", routines_path %></li>
+        <li><%= link_to "Exercises", exercises_path %></li>
+        <li><%= link_to "New Routine", new_routine_path %></li>
+        <li><%= link_to "New Exercises", new_exercise_path %></li>
+        <li><%= link_to "Register", new_user_registration_path %></li>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      </ul>
+    </nav>
+  </header>
+  <% flash.each do |name, message| %>
+    <div class="flash-message flash-message-<%= name %>">
+      <%= message %>
+    </div>
+  <% end %>
     <%= yield %>
 
   </body>

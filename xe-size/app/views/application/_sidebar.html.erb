@@ -1,0 +1,19 @@
+<% if current_user %>
+<div class="large-3 pull-9 columns">
+
+  <ul class="side-nav">
+    <li><%= current_user.username %></li>
+    <li><%= link_to "My Profile", current_user %></li>
+    <li><%= link_to "Edit My Profile", edit_user_registration_path %></li>      
+    <li><%= link_to "Routines", routines_path %></li>
+    <li><%= link_to "Exercises", exercises_path %></li>
+    <li><%= link_to "Users", users_path %></li>
+    <li><%= link_to "New Routine", new_routine_path %></li>
+    <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+  </ul>
+  
+  <p><img src="http://placehold.it/320x240&text=Ad"/></p>
+
+</div>
+
+<% end %>

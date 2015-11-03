@@ -3,34 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
+    <title><%= content_for?(:title) ? yield(:title) : "Xe-size" %></title>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <%= render "header" %> 
-
-    <div class="row">    
-       <% if current_user %>
-      <div class="large-9 push-3 columns">
-      <% else %>
-      <div class="large-12 columns">
-      <% end %>
-      <% flash.each do |name, message| %>
-        <div class="flash-message flash-message-<%= name %>">
-        <%= message %>
-        </div>
-      <% end %>
-        <%= yield %>  
+   
+    <% flash.each do |name, message| %>
+      <div class="row flash-message flash-message-<%= name %>">
+      <%= message %>
       </div>
-      
-      <%= render "sidebar" %>
-      
-    </div>
+    <% end %>
+
+    <main class="row"> 
+        <%= yield %>  
+    </main>
 
     <%= render "footer" %>
   </body>

@@ -1,0 +1,9 @@
+$blue: #00AEEF;
+
+header {
+  border-bottom: 4px solid $blue;
+}
+
+header .top-bar .name h1 a {
+  font-weight: 700;
+}

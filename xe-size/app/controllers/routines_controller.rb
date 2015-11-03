@@ -1,4 +1,5 @@
 class RoutinesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_routine, only: [:show, :edit, :update, :destroy]
 
   # GET /routines
@@ -54,7 +55,7 @@ class RoutinesController < ApplicationController
   # DELETE /routines/1
   # DELETE /routines/1.json
   def destroy
-    @routine.destroy
+    current_user.routines.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to routines_url, notice: 'Routine was successfully destroyed.' }
       format.json { head :no_content }

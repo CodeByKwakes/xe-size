@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :routines
   devise_for :users
   resources :users, only: [:index, :show]
+  get "trainers", to: "users#trainers"
+  get "clients", to: "users#clients"
 end

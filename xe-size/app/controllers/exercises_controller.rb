@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
 
   # GET /exercises
@@ -24,7 +25,7 @@ class ExercisesController < ApplicationController
   # POST /exercises
   # POST /exercises.json
   def create
-    @exercise = Exercise.new(exercise_params)
+    @exercise = current_uers.exercises.new(exercise_params)
 
     respond_to do |format|
       if @exercise.save
@@ -54,7 +55,7 @@ class ExercisesController < ApplicationController
   # DELETE /exercises/1
   # DELETE /exercises/1.json
   def destroy
-    @exercise.destroy
+    current_user.exercises.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to exercises_url, notice: 'Exercise was successfully destroyed.' }
       format.json { head :no_content }

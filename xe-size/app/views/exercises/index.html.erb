@@ -1,17 +1,11 @@
 <h1>Exercises</h1>
 
-    <% @exercises.each do |exercise| %>
-      <div class="large-4 small-6 columns" data-pg-collapsed>
-    <%= image_tag exercise.image %>
-    <div class="panel">
-        <h5><%= exercise.name %></h5>
-        <h6 class="subheader"><%= link_to 'Show', exercise %></h6>
-    </div>
+<% @exercises.each do |exercise| %>
+<div class="large-4 small-6 columns" data-pg-collapsed>
+  <%= image_tag exercise.image %>
+  <div class="panel">
+    <h5><%= exercise.name %></h5>
+    <h6 class="subheader"><%= link_to 'Show', exercise %></h6>
+  </div>
 </div>
-    <% end %>
-
-<br>
-
-<%= link_to 'New Exercise', new_exercise_path %>
-
-
+<% end %>

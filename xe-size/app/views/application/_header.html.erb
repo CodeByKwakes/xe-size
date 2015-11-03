@@ -1,17 +1,26 @@
-<div class="row">
-  <div class="large-3 columns">
-    <h1><img src="http://placehold.it/400x100&text=Logo" /></h1>
-  </div>
-  <div class="large-9 columns">
-    <ul class="inline-list right">
-      <li><%= link_to "Home", root_path %></li>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><img src="http://placehold.it/100x40&text=Logo" /></h1>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
       <% if current_user %>
+      <li><%= image_tag current_user.image, :size => "50x50" %></li>
       <li><%= current_user.username %></li>
+      
       <% else %>
       <li><%= link_to "Login", new_user_session_path %></li>
       <li><%= link_to "Sign Up", new_user_registration_path %></li>
       <% end %>
     </ul>
-  </div>
-</div>
 
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><%= link_to "Home", root_path %></li>
+    </ul>
+  </section>
+</nav>

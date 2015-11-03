@@ -1,4 +1,7 @@
 <h1>All Users</h1>
 <% @users.each do |user| %>
+  <%= user.username %>
+  <%= image_tag user.image, :size => "200x200" %>
   <%= user.email  %>
+  <%= link_to 'Show', user %>
 <% end %>

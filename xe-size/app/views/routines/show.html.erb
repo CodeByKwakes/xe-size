@@ -8,6 +8,17 @@
   <%= @routine.description %>
 </p>
 
+<ul>
+<% @routine.exercises.each do |exercise| %>
+<li>
+  <ul>
+    <li><%= exercise.name %></li>
+    <li><%= image_tag exercise.image %></li>
+    <li><%= exercise.description %></li>
+  </ul>
+</li>
+<% end %>
+</ul>
 <p>
   <strong>Set:</strong>
   <%= @routine.set %>

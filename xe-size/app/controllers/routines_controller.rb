@@ -69,6 +69,6 @@ class RoutinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def routine_params
-      params.require(:routine).permit(:title, :description, :set, :reps, :weight)
+      params.require(:routine).permit(:title, :description, :set, :reps, :weight, exercise_ids:[])
     end
 end

@@ -20,6 +20,11 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
+    <%= f.label :exercises %><br>
+    <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :name %>
+  </div>
+
+  <div class="field">
     <%= f.label :set %><br>
     <%= f.text_field :set %>
   </div>

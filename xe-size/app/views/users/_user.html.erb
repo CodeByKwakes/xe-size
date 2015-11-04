@@ -1,7 +1,9 @@
-<li>
-  <ul>
-    <li><%= link_to user.username, user %></li>
-    <li><%= image_tag user.image, :size => "200x200" %></li>
-    <li><%= user.email %></li>
-  </ul>
-</li>
+<div class="rows">
+  <div class="large-3 medium-4 small-6 columns">
+    <a class="th" href="#"><%= image_tag user.image %></a>
+    <h6 class="panel">
+      <%= link_to user.username, user %>
+      <%= user.email %>
+    </h6>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="large-6 medium-6 push-3 columns">
+  <div class="large-12 medium-12 columns">
     <h1 class="text-center"><%= @routine.title %></h1>
     <h3><%= @routine.description %></h3>
   </div>
@@ -7,28 +7,31 @@
 
 <% @routine.exercises.each do |exercise| %>
 <div class="row">
+  <hr/>
   <div class="large-3 columns">
-    <div class="panel">
-      <%= image_tag exercise.image %>
-    </div>
+  <div class="panel">
+    <%= image_tag exercise.image %>
+  </div>
   </div>
   <div class="large-6 columns">
-    <div class="panel">
-      <h5><strong><%= exercise.name %></strong></h5>
-      <p><strong>Description:</strong><%= exercise.description %></p>
-    </div>
+    <h5><strong><%= exercise.name %></strong></h5>
+    <p><strong>Description: </strong><%= exercise.description %></p>
   </div>
-  <div class="large-3  columns">
-    <div class="panel">
-      <ul class="inline-list">
-       <li><strong>Set:</strong><%= @routine.set %></li>
-       <li><strong>Reps:</strong><%= @routine.reps %></li>
-       <li><strong>Weight:</strong><%= @routine.weight %></li>
-     </ul>
-   </div>
- </div>
+  <div class="large-3 columns">
+     <ul class="inline-list">
+      <li><strong>Set:</strong><%= @routine.set %></li>
+      <li><strong>Reps:</strong><%= @routine.reps %></li>
+      <li><strong>Weight:</strong><%= @routine.weight %></li>
+    </ul>
+  </div>
 </div>
 <% end %>
+
+
+
+
+
+
 
 <%= link_to 'Edit', edit_routine_path(@routine) %> |
 <%= link_to 'Back', routines_path %>

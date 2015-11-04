@@ -5,12 +5,11 @@
   </div>
 </div>
 
-
 <% @routine.exercises.each do |exercise| %>
 <div class="row">
   <div class="large-3 columns">
     <div class="panel">
-    <%= image_tag exercise.image %>
+      <%= image_tag exercise.image %>
     </div>
   </div>
   <div class="large-6 columns">
@@ -25,14 +24,11 @@
        <li><strong>Set:</strong><%= @routine.set %></li>
        <li><strong>Reps:</strong><%= @routine.reps %></li>
        <li><strong>Weight:</strong><%= @routine.weight %></li>
-       </ul>
-    </div>
-  </div>
+     </ul>
+   </div>
+ </div>
 </div>
-
 <% end %>
-
-
 
 <%= link_to 'Edit', edit_routine_path(@routine) %> |
 <%= link_to 'Back', routines_path %>

@@ -1,8 +1,19 @@
+
+<%= link_to "Back", trainers_path %>
 <div class="row">
-  
-   <div class="large-9 push-3 columns">
-   <h1><%= @user.username %></h1>
-      <%= image_tag @user.image, :size => "100x200" %>
-      <%= @user.email %>    
-   </div>
+  <div class="large-3 columns">
+    <h1><%= image_tag @user.image %></h1>
+  </div>
+  <div class="large-9 columns right">
+    <ul class="vcard">
+      <li class="fn"><h1><%= @user.username %></h1></li>
+      <li class="fn"><%= @user.first_name %></li>
+      <li class="fn"><%= @user.last_name %></li>
+      <li class="street-address"></li>
+      <li class="locality"></li>
+      <li span class="state"></li>
+      <li span class="zip"></li>
+      <li class="email"><%= @user.email %></li>
+    </ul>
+  </div>
 </div>

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :routines
   has_many :exercises
-
+  mount_uploader :avatar, AvatarUploader
   validates :role, presence: true
 
   scope :trainers, -> { where(role: "trainer") }

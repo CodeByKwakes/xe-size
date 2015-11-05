@@ -1,5 +1,21 @@
 $blue: #00AEEF;
 
+* {
+margin: 0;
+}
+html, body {
+height: 100%;
+}
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -4em;
+}
+.footer, .push {
+height: 4em;
+}
+
 header {
   background: #333333;
   border-bottom: 4px solid $blue;
@@ -9,11 +25,10 @@ header .top-bar .name h1 a {
   font-weight: 700;
 }
 
-footer div .row {
-  background: #333333;
-  border-top: 4px solid $blue;
-}
-
 footer {
+  background-color: #333333;
+  border-top: 4px solid $blue;
+  height: 70px;
   color: white;
+  padding: 20px
 }

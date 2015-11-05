@@ -1,16 +1,13 @@
 <h1>Exercises</h1>
 
-<% @exercises.each do |exercise| %>
-<div class="rows">
-  <div class="large-3 medium-4 small-6 columns">
-    <a class="th" href="#"><%= image_tag exercise.exercise_image.url(:thumb) %></a>
-    <h6 class="panel">
-      <ul class="no-bullet">
-        <li><h5 class="text-center"><%= exercise.name %></h5></li>
-        <li><h6 class="subheader"><%= link_to 'Show', exercise %></h6></li>
-      </ul>
-    </h6>
-  </div>
-</div>
-<% end %>
+<ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-6">
+  <% @exercises.each do |exercise| %>
+    <li>
+      <%= link_to exercise, class: "th" do %>
+        <h5 class="text-center"><%= exercise.name %></h5>
+        <%= image_tag exercise.exercise_image.url(:thumb) %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
 

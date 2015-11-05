@@ -4,36 +4,36 @@
       <li class="name">
         <h1>
           <%= link_to root_path do %>
-            Xe-cise
+          Xe-cise
           <% end %>
         </h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <% if current_user %>
-      <li><%= image_tag current_user.avatar.url, :size => "50x50" %></li>
-      <li><%= link_to current_user.username, current_user %></li>
-      <li class="has-dropdown">
-        <a href="#">Dashboard</a>
-        <ul class="dropdown">
-          <li><%= link_to "My Profile", current_user %></li>
-          <li><%= link_to "Edit My Profile", edit_user_registration_path %></li>      
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-        </ul>
-      </li>
-      <% else %>
-      <li><%= link_to "Login", new_user_session_path %></li>
-      <li><%= link_to "Sign Up", new_user_registration_path %></li>
-      <% end %>
-    </ul>
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <% if current_user %>
+        <li><%= image_tag current_user.avatar.url %></li>
+        <li><%= link_to current_user.username, current_user %></li>
+        <li class="has-dropdown">
+          <a href="#">Dashboard</a>
+          <ul class="dropdown">
+            <li><%= link_to "My Profile", current_user %></li>
+            <li><%= link_to "Edit My Profile", edit_user_registration_path %></li>      
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+        <% else %>
+        <li><%= link_to "Login", new_user_session_path %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
 
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <% if current_user && current_user.role == "trainer" %>
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <% if current_user && current_user.role == "trainer" %>
         <li class="has-dropdown">
           <a href="#">Routines</a>
           <ul class="dropdown">
@@ -48,13 +48,13 @@
             <li><%= link_to "Add Exercise", new_exercise_path %></li>
           </ul>
         </li>
-      <% else %>
+        <% else %>
         <li><%= link_to "Routines", routines_path %></li>
         <li><%= link_to "Exercises", exercises_path %></li>
-      <% end %>
-      <li><%= link_to "Trainers", trainers_path %></li>
-      <li><%= link_to "Clients", clients_path %></li>
-    </ul>
-  </section>
-</nav>
+        <% end %>
+        <li><%= link_to "Trainers", trainers_path %></li>
+        <li><%= link_to "Clients", clients_path %></li>
+      </ul>
+    </section>
+  </nav>
 </header>

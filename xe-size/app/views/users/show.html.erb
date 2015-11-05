@@ -15,7 +15,7 @@
   </div>
   <div class="row">
     <hr/>
-    <div class="large-6 columns">
+    <div class="large-12 columns">
       <% if @user.role == "client" %>
         <% if current_user.role == "trainer" %>
           <% if current_user.voted_up_on? @user %>
@@ -27,10 +27,14 @@
       <% end %>
       <% if @user.role == "client" %>
         <h4>Current Trainers:</h4>
-          <ul>
+          <ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-6">
             <% @user.get_upvotes.voters.each do |trainer| %>
+            <li>
               <%= link_to trainer.username, trainer %>
+              </h6>
+                <%= image_tag trainer.avatar.url(:thumb) %>
             <% end %>
+            </li>
           </ul>
       <% end %>
       <% if @user.role == "trainer" %>
@@ -62,9 +66,10 @@
      <% end %>
     </div>
   </div>
-  <hr>
+
   <% if @user.role == "trainer"%>
     <% if @user.voted_up_on? current_user %>
+    <hr>
       <div class="row">
         <div class="large-6 columns">
           <h4>Routines</h4>

@@ -21,9 +21,14 @@ header {
   border-bottom: 4px solid $blue;
 }
 
-header .img{
+header .img {
   height: 50px;
   width: 50px;
+}
+
+header h1 {
+  height: 50px;
+    width: 125px; 
 }
 
 header .top-bar .name h1 a {

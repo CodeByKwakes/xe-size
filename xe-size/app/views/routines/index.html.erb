@@ -2,16 +2,19 @@
 <% @routines.each do |routine| %>
 <% if current_user.id == routine.user_id %>
 <div class="row">
-  <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
-  <div class="large-10 columns">
-  <h3><strong><%= routine.title %></strong></h3>
-    <p><strong>Description: </strong><%= routine.description %></p>
+  <div class="large-3 columns medium-3 small-3"><%= image_tag "XESizelogo" %></div>
+  <div class="large-3 columns medium-3 small-3">
+  <h4><strong><%= routine.title %></strong></h4>
+  </div>
+  <div class="large-3 columns medium-3 small-3">
+    <p><strong>Description:</strong></br><%= routine.description %></p>
+    </div>
+    <div class="large-3 columns medium-3 small-3">
     <ul class="inline-list">
       <li><a href=""><%= link_to 'Show', routine %></a></li>
       <li><a href=""><%= link_to 'Edit', edit_routine_path(routine) %></a></li>
       <li><a href=""><%= link_to 'Destroy', routine, method: :delete, data: { confirm: 'Are you sure?' } %></a></li>
     </ul>
-  </div>
 </div>
 <hr/>
 <% end %>

@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  root 'exercises#index'
+
+  devise_scope :user do
+      authenticated :user do
+        root 'exercises#index', as: :authenticated_root
+      end
+
+      unauthenticated do
+        root 'home#home', as: :unauthenticated_root
+      end
+    end
   resources :exercises
   resources :routines
   devise_for :users

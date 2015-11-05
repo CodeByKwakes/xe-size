@@ -21,6 +21,11 @@ header {
   border-bottom: 4px solid $blue;
 }
 
+header .img{
+  height: 50px;
+  width: 50px;
+}
+
 header .top-bar .name h1 a {
   font-weight: 700;
 }

@@ -1,10 +1,10 @@
-<div class="rows">
-  <div class="large-3 medium-4 small-6 columns">
-    <a class="th" href="#"><%= image_tag user.avatar.url(:thumb) %></a>
-    <h6 class="panel">
-      <ul class="no-bullet">
-        <li><h4 class="text-center"><%= link_to user.username, user %></h4></li>
-      </ul>
-    </h6>
-  </div>
-</div>
+
+<ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-6">
+    <li>
+      <%= link_to user, class: "th" do %>
+        <h5 class="text-center"><%= user.username %></h5>
+        <%= image_tag user.avatar.url(:thumb) %>
+      <% end %>
+    </li>
+</ul>
+

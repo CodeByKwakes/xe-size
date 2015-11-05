@@ -1,33 +1,79 @@
 <%= link_to "Back", trainers_path %>
 
 <div class="row">
-<hr/>
-<div class="small-10 large-6 columns">
-  <%= image_tag @user.avatar.url(:detail) %>
-</div>
-<div class="small-12 large-6 columns">
-  <h1><%= @user.username %></h1>
-
-<div class="vcard">
-  <li class="fn"><%= @user.first_name %> <%= @user.last_name %></li>
-  <li class="street-address"></li>
-  <li class="locality"></li>
-  <li span class="state"></li>
-  <li span class="zip"></li>
-  <li class="email"><%= @user.email %></li>
-</div>
-  <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-</div>
-
-<div class="row">
   <hr/>
-  <div class="large-6 columns">
-    <h4>This is a content section.</h4>
+  <div class="small-10 large-6 columns">
+    <%= image_tag @user.avatar.url(:detail) %>
+  </div>
+  <div class="small-12 large-6 columns">
+    <h1><%= @user.username %></h1>
+
+    <div class="vcard">
+      <li class="fn"><%= @user.first_name %> <%= @user.last_name %></li>
+      <li class="street-address"></li>
+      <li class="locality"></li>
+      <li span class="state"></li>
+      <li span class="zip"></li>
+      <li class="email"><%= @user.email %></li>
+    </div>
     <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
   </div>
-  <div class="large-6 columns">
-    <h4>This is a content section.</h4>
-    <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+
+  <div class="row">
+    <hr/>
+    <div class="large-6 columns">
+      <% if @user.role == "client" %>
+        <% if current_user.role == "trainer" %>
+          <% if current_user.voted_up_on? @user %>
+            <%= link_to "Finish Job", completed_user_path(@user), method: :put %>
+          <% else %>
+            <%= link_to "Add as Client", hired_user_path(@user), method: :put %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if @user.role == "client" %>
+      <h4>Current Trainers:</h4>
+      <ul>
+        <% @user.get_upvotes.voters.each do |trainer| %>
+        <%= link_to trainer.username, trainer %>
+        <% end %>
+      </ul>
+      <% end %>
+      <% if @user.role == "trainer" %>
+      <h4>Current Clients:</h4>
+      <ul>
+        <% @user.find_up_voted_items.each do |client| %>
+        <%= link_to client.username, client %>
+        <% end %>
+      </ul>
+      <% end %>
+
+    </div>
+    <div class="large-6 columns">
+      <% if @user.role == "trainer" %>
+      <h4>Previous Clients:</h4>
+      <ul>
+        <% @user.find_down_voted_items.each do |client| %>
+        <%= link_to client.username, client %>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
   </div>
-</div>
+  <hr>
+  <% if @user.role == "trainer"%>
+    <% if @user.voted_up_on? current_user %>
+      <div class="row">
+        <div class="large-6 columns">
+          <h4>Routines</h4>
+          <ul>
+            <% @user.routines.each do |routine| %>
+              <li><%= link_to routine.title, routine %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>

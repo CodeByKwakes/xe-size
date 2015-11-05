@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'acts_as_votable'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'cancancan', '~> 1.10'

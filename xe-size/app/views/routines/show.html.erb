@@ -1,39 +1,30 @@
 <div class="routine-show">
-<div class="row">
-  <div class="large-12 medium-12 columns">
-    <h1 class="text-center"><%= @routine.title %></h1>
-    <h3><%= @routine.description %></h3>
+  <div class="row">
+    <div class="large-12 medium-12 columns">
+      <h1 class="text-center"><%= @routine.title %></h1>
+      <h3><%= @routine.description %></h3>
+    </div>
   </div>
-</div>
-
-<% @routine.exercises.each do |exercise| %>
-<div class="row">
-  <hr/>
-  <div class="large-3 medium-12 small-12 columns">
-
-    <%= image_tag exercise.exercise_image.url(:detail) %>
-
-  </div>
-  <div class="large-6 columns">
-    <h5><strong><%= exercise.name %></strong></h5>
-    <p><strong>Description: </strong><%= exercise.description %></p>
-  </div>
-  <div class="large-3 columns">
-     <ul class="inline-list">
-      <li><strong>Set:</strong><%= @routine.set %></li>
-      <li><strong>Reps:</strong><%= @routine.reps %></li>
-      <li><strong>Weight:</strong><%= @routine.weight %></li>
-    </ul>
-  </div>
-</div>
-<% end %>
-
-
-
-
-
-
-
+  
+  <% @routine.exercises.each do |exercise| %>
+    <div class="row">
+      <hr/>
+      <div class="large-3 medium-6 small-12 columns">
+        <%= image_tag exercise.exercise_image.detail.url %>
+      </div>
+      <div class="large-6 medium-6 columns">
+        <h5><strong><%= exercise.name %></strong></h5>
+        <p><strong>Description: </strong><%= exercise.description %></p>
+      </div>
+      <div class="large-3 columns">
+         <ul class="inline-list">
+          <li><strong>Set:</strong><%= @routine.set %></li>
+          <li><strong>Reps:</strong><%= @routine.reps %></li>
+          <li><strong>Weight:</strong><%= @routine.weight %></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 
 <%= link_to 'Edit', edit_routine_path(@routine) %> |
 <%= link_to 'Back', routines_path %>

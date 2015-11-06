@@ -13,7 +13,7 @@
       <!-- Right Nav Section -->
       <ul class="right">
         <% if current_user %>
-        <li class="img"><%= image_tag current_user.avatar.url(:thumb) %></li>
+        <li class="img"><%= image_tag current_user.avatar.thumb.url %></li>
         <li><%= link_to current_user.username, current_user %></li>
         <li class="has-dropdown">
           <a href="#">Dashboard</a>

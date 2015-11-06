@@ -18,7 +18,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    "fallback/default.png"
+    "fallback/default.jpg"
   end
 
   # Process files as they are uploaded:
@@ -38,7 +38,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process :resize_to_fit => [640, 480]
+    process :resize_to_fit => [600, 600]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

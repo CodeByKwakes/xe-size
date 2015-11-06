@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><%= content_for?(:title) ? yield(:title) : "Xe-size" %></title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "vendor/modernizr" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="wrapper">
-    <%= render "header" %> 
-    
-    <% flash.each do |name, message| %>
-    <div data-alert class="alert-box secondary row flash-message flash-message-<%= name %>">
-      <%= message %>
-      <a href="#" class="close">&times;</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= content_for?(:title) ? yield(:title) : "XE-Size" %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="wrapper">
+      <%= render "header" %> 
+      <% flash.each do |name, message| %>
+        <div data-alert class="alert-box secondary row flash-message flash-message-<%= name %>">
+          <%= message %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
+      <main class="row"> 
+        <%= yield %>  
+      </main>
+      <div class="push"></div>
     </div>
-    <% end %>
-
-    <main class="row"> 
-      <%= yield %>  
-    </main>
-    <div class="push"></div>
-  </div>
-  <div class="footer">
-    <%= render "footer" %>
-  </div>
-</body>
+    <div class="footer">
+      <%= render "footer" %>
+    </div>
+  </body>
 </html>

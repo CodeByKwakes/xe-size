@@ -1,0 +1,53 @@
+<div class="row">
+  <hr/>
+  <div class="large-12 columns">
+    <% if @user.role == "client" %>
+      <% if current_user.role == "trainer" %>
+        <% if current_user.voted_up_on? @user %>
+          <%= link_to "Finish Job", completed_user_path(@user), method: :put %>
+        <% else %>
+          <%= link_to "Add as Client", hired_user_path(@user), method: :put %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if @user.role == "client" %>
+      <h4>Current Trainers:</h4>
+      <ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-6">
+        <% @user.get_upvotes.voters.each do |trainer| %>
+          <li>
+            <h6><%= link_to trainer.username, trainer %></h6>
+              <%= image_tag trainer.avatar.thumb.url %>
+            <% end %>
+          </li>
+      </ul>
+    <% end %>
+
+    <% if @user.role == "trainer" %>
+      <h4>Current Clients:</h4>
+      <ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-6">
+      <% @user.find_up_voted_items.each do |client| %>
+        <li>
+          <h6 class="text-center"><%= link_to client.username, client %></h6>
+            <%= image_tag client.avatar.thumb.url %>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+  <hr>
+  
+  <div class="large-12 columns">
+    <% if @user.role == "trainer" %>
+    <h4>Previous Clients:</h4>
+    <ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-6">
+      <% @user.find_down_voted_items.each do |client| %>
+      <li>
+        <h6 class="text-center"><%= link_to client.username, client %></h6>
+        <%= image_tag client.avatar.thumb.url %>
+        <% end %>
+      </li>
+    </ul>
+    <% end %>
+  </div>
+</div>

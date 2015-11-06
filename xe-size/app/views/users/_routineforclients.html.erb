@@ -1,0 +1,15 @@
+<% if @user.role == "trainer"%>
+  <% if @user.voted_up_on? current_user %>
+  <hr>
+    <div class="row">
+      <div class="large-6 columns">
+        <h4>Routines</h4>
+        <ul>
+          <% @user.routines.each do |routine| %>
+          <li><%= link_to routine.title, routine %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+<% end %>

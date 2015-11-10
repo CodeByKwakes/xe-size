@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'fog', '1.29.0'
 gem 'acts_as_votable'
 gem 'rmagick'
 gem 'carrierwave'

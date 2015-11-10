@@ -4,6 +4,8 @@
 
 ###A fitness and personal trainer workout webapp with the following aim:
 
+##### [Try XE-Size now](https://xe-size.herokuapp.com/)
+
 * For a User to choose if they want to be either a client or a trainer
 
 ##### Clients abilities 
